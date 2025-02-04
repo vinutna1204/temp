@@ -9,7 +9,7 @@
       e.preventDefault();
        let username=document.getElementById("email").value;
        let password=document.getElementById("password").value;
-       if(username !== " " || password !== " "){
+       if(username == "" || password == ""){
         msg.innerHTML = "Please Fill The Blanks"
        }else if(username !== "vinnu@gmail.com" || password !== "1234"){
          msg.innerHTML = "Access Denied"
