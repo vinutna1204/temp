@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f1(){
+        let v= document.getElementById("uname").value;
+       // alert(v);
+       if(v<40){
+        msg.innerHTML = " Better Luck Next Time"
+       }else{
+       msg.innerHTML = " Promoted To Next Level"
+        }
+    }
+    </script>
+</head>
+<body>
+    <input type="number" id="uname" >
+    <button onclick="f1()">submit</button>
+    <hr>
+    <div id="msg"></div>
+</body>
+</html>
