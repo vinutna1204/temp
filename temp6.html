@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <script>
+    function f1(){
+       let username=document.getElementById("email").value;
+       let password=document.getElementById("password").value;
+       if(username !== "vinnu@gmail.com" || password !== "1234"){
+         msg.innerHTML = "Access Denied"
+         let v="Login Unsuccessfull"
+         alert(v)
+       }else{
+        msg.innerHTML = "Welcome vinnu"
+         let v="Login Successfull"
+         alert(v)
+       }
+
+    }
+ </script>
+ <style>
+  *{
+    margin: 0;
+    padding: 0;
+    
+  }
+  .form-container{
+    border:2px solid black;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height:150px;
+    width:300px;
+    margin-left: 550px;
+    margin-top: 250px;
+
+  }
+ </style>
+</head>
+<body>
+    <div class="form-container" id="msg">
+    <form >
+    <input type="email" id="email" placeholder="Email address or phone number"required style="width:250px;height:30px;padding:5px"><br><br>
+    <input type="password" id="password" placeholder="Password" required  style="width:250px;height:30px;padding:5px"><br><br>
+    <button style="background-color: rgb(85, 85, 214);width:250px;height:30px;padding:5px;" onclick="f1()">Log in</button><br>
+</div>
+</form>
+</body>
+</html>
