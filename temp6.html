@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
  <script>
-    function f1(){
+    function f1(e){
+      e.preventDefault();
        let username=document.getElementById("email").value;
        let password=document.getElementById("password").value;
-       if(username !== "vinnu@gmail.com" || password !== "1234"){
+       if(username !== " " || password !== " "){
+        msg.innerHTML = "Please Fill The Blanks"
+       }else if(username !== "vinnu@gmail.com" || password !== "1234"){
          msg.innerHTML = "Access Denied"
          let v="Login Unsuccessfull"
          alert(v)
@@ -31,7 +34,7 @@
     padding: 20px;
     justify-content: center;
     align-items: center;
-    height:150px;
+    height:200px;
     width:300px;
     margin-left: 550px;
     margin-top: 250px;
@@ -40,12 +43,17 @@
  </style>
 </head>
 <body>
-    <div class="form-container" id="msg">
+    <div class="form-container" >
     <form >
-    <input type="email" id="email" placeholder="Email address or phone number"required style="width:250px;height:30px;padding:5px"><br><br>
-    <input type="password" id="password" placeholder="Password" required  style="width:250px;height:30px;padding:5px"><br><br>
-    <button style="background-color: rgb(85, 85, 214);width:250px;height:30px;padding:5px;" onclick="f1()">Log in</button><br>
-</div>
+      <p><div id="msg"></div></p><br>
+    <input type="email" id="email" placeholder="Email address or phone number"required 
+    style="width:250px;height:30px;padding:5px"><br><br>
+    <input type="password" id="password" placeholder="Password" required  
+    style="width:250px;height:30px;padding:5px"><br><br>
+    <button  onclick="f1(event)" 
+    style="background-color: rgb(85, 85, 214);width:250px;height:30px;padding:5px;">Log in</button><br>
+
 </form>
+</div>
 </body>
 </html>
