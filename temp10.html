@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *{
+            background-color: rgb(218, 167, 132);
+        }
+        .container{
+        display: flex;
+        justify-content: center;
+         }
+         .box{
+            margin: 20px;
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px 3px black ;
+            /* width:220px; */
+         }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      let products = [
+        {
+          id: 1,
+          name: "Product 1",
+          price: "RS.10",
+          desc: "This is the product description",
+          url:"https://picsum.photos/id/1/200/200"
+        },
+        {
+          id: 2,
+          name: "Product2",
+          price: "Rs.35",
+          desc: "This is the product description",
+          url:"https://picsum.photos/id/96/200/200",
+        },
+        {
+          id: 3,
+          name: "Product3",
+          price: "RS.20",
+          desc: "This is the product description",
+          url:"https://picsum.photos/id/175/200/200"
+        },
+        {
+          id: 4,
+          name: "Product4",
+          price: "Rs.40",
+          desc: "This is the product description",
+          url:"https://picsum.photos/id/152/200/200"
+        },
+        {
+          id: 5,
+          name: "Product5",
+          price: "Rs.15",
+          desc: "This is the product description",
+          url:"https://picsum.photos/id/48/200/200"
+        },
+      ];
+    //   console.log(products)
+      let length=products.length
+      let str='<div class="container">'
+      for(let i=0;i<length;i++){
+        // str = str+" "+ products[i].name
+        str += `<div>
+                   <div class="box">
+                      <img src='${products[i].url}'>
+                      <h2>${products[i].name}</h2>
+                      <p>${products[i].desc}</p>
+                      <h3>Price: ${products[i].price}<h3>
+                      <button>Add to Cart</button>
+                    </div>
+                 </div>`
+      }
+   str+='</div>'
+      root.innerHTML = str
+    </script>
+  </body>
+</html>
