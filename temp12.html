@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let users= []
+        
+        function showForm(){
+         root.innerHTML=`<h1>Registration Form</h1>
+          <input type="text" placeholder="Name" id="name"><br><br>
+          <input type="email" placeholder="Email" id="email"><br><br>
+          <input type="password" placeholder="Password" id="pwd"><br><br>
+          <input type="date" id = "dob"><br><br>
+          <button onclick="addUsers(event)">Register</button>
+          
+          <div id="data"></div>`
+        }
+        function addUsers(e){
+           e.preventDefault();
+           let name=document.getElementById("name").value;
+           let email=document.getElementById("email").value;
+           let pwd=document.getElementById("pwd").value;
+           let dob=document.getElementById("dob").value;
+           let user={
+            name:name,
+            email:email,
+            pwd:pwd,
+            dob:dob
+           }
+           users.push(user)
+           showUsers()
+          // root.innerHTML += `${name}, ${email}, ${pwd}, ${dob} <br>`;
+
+        }
+        function showUsers(){
+            let length =users.length
+            let str=""
+           for (let i = 0; i < length; i++) {
+            str += `<pre>${users[i].name}\t${users[i].email}\t${users[i].pwd}\t ${users[i].dob}\t<button onclick='deleteUser(${i})'>Delete</button> </pre> `;
+            }
+           data.innerHTML = str
+        }
+        function deleteUser(index){
+          users.splice(index,1);
+          showUsers();
+        }
+    showForm();  
+   </script>
+</head>
+<body onload="showForm()">
+    <div id="root"></div>
+    <!-- <from>
+    <h1>Registration Form</h1>
+    <input type="text" placeholder="Name" id="name"><br><br>
+    <input type="email" placeholder="Email" id="email"><br><br>
+    <input type="password" placeholder="Password" id="pwd"><br><br>
+    <input type="date" id = "dob"><br><br>
+    <button onclick="addUsers(event)">Register</button>
+    <div id="root"></div>
+    </from> -->
+
+</body>
+</html>
