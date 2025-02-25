@@ -5,16 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
+      const products = [
+        { id: 1, name: "P1", price: 25 },
+        { id: 2, name: "P2", price: 45 },
+        { id: 3, name: "P3", price: 30 },
+      ];
+      const cart = {};
+      const addToCart = (id) => {
+        // const score = {};
+        // score["maths"] = 95;
+        // score["maths"] = score["maths"] + 2
+        // console.log(score);
+        cart[id] = 1;
+        showCart();
+      };
+      const increment = (id) => {
+        cart[id] = cart[id] + 1;
+        showCart();
+      };
+      const decrement = (id) => {
+        cart[id] = cart[id] - 1;
+        cart[id] < 1 && delete cart[id];
+        console.log(cart);
+        showCart();
+      };
+      const showTotal = () => {
+        let total = products.reduce((sum, value) => {
+          return sum + value.price * (cart[value.id] ? cart[value.id] : 0);
+        }, 0);
+
+        divTotal.innerHTML = `Order Value: $${total}`;
+      };
+
+      const showCart = () => {
+        let str = "";
+        products.map((value) => {
+          if (cart[value.id]) {
+            str += `
+            <li>${value.name}-$${value.price}-<button onclick='decrement(${
+              value.id
+            })'>-</button>${cart[value.id]}<button onclick='increment(${
+              value.id
+            })'>+</button>-$${value.price * cart[value.id]}</li><br>0
+            `;
+          }
+        });
+        divCart.innerHTML = str;
+        let count = Object.keys(cart).length;
+        items.innerHTML = count;
+        showTotal();
+      };
       const showProducts = () => {
-        const products = [
-          { id: 1, name: "P1", price: 25 },
-          { id: 2, name: "P2", price: 45 },
-          { id: 3, name: "P3", price: 30 },
-        ];
         let str = "";
         products.map((value) => {
           str += `
-          <li>${value.id}-${value.name}-${value.price}-<button>Add to Cart</button></li>
+          <li>${value.id}-${value.name}-${value.price}-<button onclick=addToCart(${value.id})>Add to Cart</button></li><br>
           `;
         });
         divProducts.innerHTML = str;
@@ -23,7 +68,12 @@
   </head>
   <body onload="showProducts()">
     <h1>My Store</h1>
+    <h4>Cart:<span id="items"></span></h4>
     <hr />
+    <h3>Products</h3>
     <div id="divProducts"></div>
+    <h3>My Cart</h3>
+    <div id="divCart"></div>
+    <div id="divTotal"></div>
   </body>
 </html>

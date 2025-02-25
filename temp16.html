@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let doj = new Date()
+        // document.write(doj+"<br>");
+        // document.write(doj.getDate()+"<br>")
+        // document.write(doj.getFullYear()+"<br>")
+        // document.write(doj.getDay()+"<br>")
+        function chkHoliday(){
+          let day =new Date(document.getElementById("day").value);
+          if(day.getDay()==3){
+            msg.innerHTML="Sorry, Wednesday is Holiday";
+          }
+          else{
+            msg.innerHTML="Welcome";
+          }
+          
+         }
+
+    </script>
+</body >
+<input type= "date" id="day" >
+<button onclick="chkHoliday()">Submit</button><hr>
+<div id="msg"></div>
+</html>
